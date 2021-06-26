@@ -23,3 +23,12 @@ describe("en una lista vacia" , function() {
         assert.isNaN(lista.find("clave"),0);
     })
 })
+
+describe("cuando se agrega un elemento a una lista vacía" , function() {
+    var lista = new Lista();
+    lista.add("clave", "valor");
+
+    it("hay un elemento", function() {
+        assert.equal(lista.count(), 1);
+    })  
+})

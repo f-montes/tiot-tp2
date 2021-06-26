@@ -1,12 +1,18 @@
-module.exports = class Lista {
+module.exports = class Lista { 
+
     constructor() {
+        this.elementos = [];
     }
-    
+
     count() {
-        return 0;
+        return this.elementos.length;
     }
 
     find() {
-      return NaN;
+        return NaN;
+    }
+
+    add(clave, valor) {
+        this.elementos.push({clave, valor});
     }
 };
