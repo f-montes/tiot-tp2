@@ -8,7 +8,7 @@ module.exports = class Lista {
         return this.elementos.length;
     }
 
-    find(clave) {
+    find() {
         if (this.elementos.length == 1) {
             return this.elementos[0].valor;
         }   
@@ -17,5 +17,9 @@ module.exports = class Lista {
 
     add(clave, valor) {
         this.elementos.push({clave, valor});
+    }
+
+    SortedArray(){
+        return this.elementos.reduce((r,{clave})=>r.concat(clave),[]).sort((a,b)=>a.localeCompare(b));
     }
 };

@@ -3,13 +3,20 @@
  *--En una lista vacia no se encuentra ninguna clave
  *--Cuando se agrega un elemento a una lista vacia hay un elemento.
  *--Cuando se agrega un elementos a una lista vacia se puede recuperar el valor a partir de la clave.
- *-Cuando se agrega una clave que ya esta en la lista se actualiza el valor correspondiente.
- *Cuando se agrega un elelmento a una lista vacia la lista de claves esta ordenada.
+ *--Cuando se agrega una clave que ya esta en la lista se actualiza el valor correspondiente.
+ *-Cuando se agrega un elemento a una lista vacia la lista de claves esta ordenada alfabeticamente.
  *Cuadoo se agrega un elemento al principio la lista de claves esta ordenada.
  *Cuando se agrega un elemento al final la lista de claves esta ordenada.
  */
 
+ var chai = require("chai")
+
  const assert = require("chai").assert;
+
+ const expect = require("chai").expect;
+    
+ chai.use(require("chai-sorted"));
+
  const Lista = require("../src/lista.js")
 
 describe("en una lista vacia" , function() {
@@ -43,5 +50,20 @@ describe("Cuando se agrega una clave que ya esta en la lista" , function() {
     
     it("se actualiza el valor correspondiente", function() {
         assert.equal(lista.find("clave"), "valor2");
+    })  
+})
+
+describe("Cuando se agregan tres claves a la lista" , function() {
+    var lista = new Lista();
+    lista.add("Aclave", "valorA");
+    lista.add("Cclave", "valorC");
+    lista.add("Bclave", "valorC");
+
+    it("hay tres elementos", function() {
+        assert.equal(lista.count(), 3);
+    })
+    
+    it("la lista de claves se muestra ordenada alfabeticamente", function() {
+        expect(lista.SortedArray()).to.be.sorted({descending: false});
     })  
 })
