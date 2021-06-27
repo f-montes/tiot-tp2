@@ -8,7 +8,10 @@ module.exports = class Lista {
         return this.elementos.length;
     }
 
-    find() {
+    find(clave) {
+        if (this.elementos.length == 1) {
+            return this.elementos[0].valor;
+        }   
         return NaN;
     }
 
