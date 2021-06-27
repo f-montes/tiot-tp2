@@ -4,7 +4,8 @@
  *--Cuando se agrega un elemento a una lista vacia hay un elemento.
  *--Cuando se agrega un elementos a una lista vacia se puede recuperar el valor a partir de la clave.
  *--Cuando se agrega una clave que ya esta en la lista se actualiza el valor correspondiente.
- *-Cuando se agrega un elemento a una lista vacia la lista de claves esta ordenada alfabeticamente.
+ *--Cuando se agregan elementos a una lista vacia se encuentran todos los elementos agregados.
+ *--Cuando se agregan elementos a una lista vacia la lista de claves esta ordenada alfabeticamente.
  *Cuadoo se agrega un elemento al principio la lista de claves esta ordenada.
  *Cuando se agrega un elemento al final la lista de claves esta ordenada.
  */
@@ -65,5 +66,14 @@ describe("Cuando se agregan tres claves a la lista" , function() {
     
     it("la lista de claves se muestra ordenada alfabeticamente", function() {
         expect(lista.SortedArray()).to.be.sorted({descending: false});
-    })  
+    }) 
+})
+
+describe("Cuando se borran claves de la lista" , function() {
+    var lista = new Lista();
+    lista.del("clave");
+
+    it("se elimina el elemento de la lista", function() {
+        assert.isNaN(lista.find("clave"));
+    })   
 })

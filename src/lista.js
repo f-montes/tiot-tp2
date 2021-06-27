@@ -22,4 +22,13 @@ module.exports = class Lista {
     SortedArray(){
         return this.elementos.reduce((r,{clave})=>r.concat(clave),[]).sort((a,b)=>a.localeCompare(b));
     }
+
+    del(clave) {
+        for (var i=0; i<this.elementos.length;i++) {
+            if (this.elementos[i].clave == clave) {
+                this.elementos.splice(i,1);
+                return;
+            }
+        }
+    }
 };
